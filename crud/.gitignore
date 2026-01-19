@@ -33,5 +33,5 @@ build/
 .vscode/
 
 ### env file imp 
-crud/.env
+.env
 
