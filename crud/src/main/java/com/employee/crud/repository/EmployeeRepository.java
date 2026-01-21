@@ -11,4 +11,5 @@ import com.employee.crud.entity.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Optional<Employee> findByEmail(String email);
     boolean existsByEmail(String email);
+    boolean existsById(Long id);
 }

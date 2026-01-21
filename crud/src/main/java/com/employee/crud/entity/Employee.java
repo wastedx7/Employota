@@ -42,11 +42,8 @@ public class Employee {
     private String salary;
     @Column(nullable = false)
     private String phone;
-    @Column(nullable = false)
+    
     private LocalDateTime hireDate;
-
-    private String resetOtp;    
-    private Long resetOtpExpireAt;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

@@ -39,8 +39,6 @@ public class EmployeeService {
                 .phone(request.getPhone())
                 .salary(null)
                 .hireDate(LocalDateTime.now())
-                .resetOtp(null)
-                .resetOtpExpireAt(0L)
                 .build();
 
     }

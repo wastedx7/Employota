@@ -25,4 +25,5 @@ public class EmployeeRequest {
     @Size(min = 8, message = "phone no should be 8 digits")
     private String phone;
     private String department;
+    private String salary;
 }
