@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.employee.crud.entity.Employee;
+import com.employee.crud.entity.Role;
 import com.employee.crud.io.EmployeeRequest;
 import com.employee.crud.io.EmployeeResponse;
 import com.employee.crud.repository.EmployeeRepository;
@@ -37,8 +38,9 @@ public class EmployeeService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .department(request.getDepartment())
                 .phone(request.getPhone())
-                .salary(null)
+                .salary(request.getSalary())
                 .hireDate(LocalDateTime.now())
+                .role(Role.EMPLOYEE)
                 .build();
 
     }

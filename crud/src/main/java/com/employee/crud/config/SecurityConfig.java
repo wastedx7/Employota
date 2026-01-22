@@ -32,10 +32,10 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/register", "/login", "/logout").permitAll()
-                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/api/register", "/api/login", "/api/logout").permitAll()
+                .requestMatchers("/api/admin/**").permitAll()
                 .anyRequest().authenticated())
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
             .logout(logout -> logout.disable());
         return http.build();
     }

@@ -29,7 +29,7 @@ public class AdminDataInitializer implements CommandLineRunner {
         Admin admin = Admin.builder()
                 .email(adminEmail)
                 .password(passwordEncoder.encode("Admin@123"))
-                .role(Role.ROLE_ADMIN)
+                .role(Role.ADMIN)
                 .build();
 
         adminRepository.save(admin);

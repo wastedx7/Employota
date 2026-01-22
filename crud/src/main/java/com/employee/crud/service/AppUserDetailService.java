@@ -55,7 +55,7 @@ public class AppUserDetailService implements UserDetailsService {
 
     private UserDetails buildUserDetails(String email, String password, String roleName) {
 
-        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(roleName));
+        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_" + roleName));
 
         return new User(
             email,

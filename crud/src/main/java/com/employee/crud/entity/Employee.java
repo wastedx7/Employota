@@ -46,7 +46,6 @@ public class Employee {
     private LocalDateTime hireDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role = Role.ROLE_EMPLOYEE;
+    private Role role;
 
 }

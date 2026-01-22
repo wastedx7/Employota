@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.employee.crud.entity.Employee;
+import com.employee.crud.entity.Role;
 import com.employee.crud.io.EmployeeRequest;
 import com.employee.crud.io.EmployeeUpdateRequest;
 import com.employee.crud.repository.EmployeeRepository;
@@ -26,18 +27,28 @@ public class AdminService {
         return employeeRepository.findAll();
     }
 
-    @Transactional
-    public void updateEmployee(EmployeeUpdateRequest request){
-        Employee employee = employeeRepository.findByEmail(request.getEmail())
+    
+    public Employee updateEmployee(Long id, EmployeeUpdateRequest request){
+        Employee employee = employeeRepository.findById(id)
             .orElseThrow(() -> new UsernameNotFoundException("employee not found"));
 
-        employee.setDepartment(request.getDepartment());
-        employee.setEmail(request.getEmail());
-        employee.setName(request.getName());
-        employee.setSalary(request.getSalary());
-        employee.setPhone(request.getPhone());
+        if (request.getDepartment() != null) {
+            employee.setDepartment(request.getDepartment());
+        }
+        if (request.getEmail() != null) {
+            employee.setEmail(request.getEmail());
+        }
+        if (request.getName() != null) {
+            employee.setName(request.getName());
+        }
+        if (request.getSalary() != null) {
+            employee.setSalary(request.getSalary());
+        }
+        if (request.getPhone() != null) {
+            employee.setPhone(request.getPhone());
+        }
 
-        employeeRepository.save(employee);
+        return employeeRepository.save(employee);
     }
 
     @Transactional
@@ -62,6 +73,7 @@ public class AdminService {
         employee.setPassword(passwordEncoder.encode(request.getPassword()));
         employee.setPhone(request.getPhone());
         employee.setSalary(request.getSalary());
+        employee.setRole(Role.EMPLOYEE);
         employee.setHireDate(LocalDateTime.now());
 
         return employeeRepository.save(employee);
