@@ -105,3 +105,8 @@ npm install
 ```bash
 npm run dev
 ```
+## SCREENSHOTS 
+![Admin Dashboard](images/admin_dashboard.png)
+![All Employees](images/employees.png)
+![Add Employee](images/create.png)
+![Delete Employee](images/delete.png)
