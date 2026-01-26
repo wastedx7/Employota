@@ -27,6 +27,12 @@ public class AdminService {
         return employeeRepository.findAll();
     }
 
+    public Employee getEmployeeById(Long id){
+        Employee employee = employeeRepository.findById(id)
+            .orElseThrow(() -> new UsernameNotFoundException("employee not found"));
+        return employee;
+    }
+
     
     public Employee updateEmployee(Long id, EmployeeUpdateRequest request){
         Employee employee = employeeRepository.findById(id)

@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 public class AdminController {
 
     private final AdminService adminService;
@@ -30,6 +30,11 @@ public class AdminController {
     @GetMapping("/employees")
     public List<Employee> getEmployees(){
         return adminService.getEmployees();
+    }
+
+    @GetMapping("/employees/{id}")
+    public Employee getEmployeeById(@PathVariable Long id){
+        return adminService.getEmployeeById(id);
     }
 
     @PostMapping("/employees")

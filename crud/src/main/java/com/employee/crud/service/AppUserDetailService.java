@@ -52,6 +52,7 @@ public class AppUserDetailService implements UserDetailsService {
 
         throw new UsernameNotFoundException("User not found with email: " + email);
     }
+    
 
     private UserDetails buildUserDetails(String email, String password, String roleName) {
 
@@ -63,4 +64,5 @@ public class AppUserDetailService implements UserDetailsService {
             authorities
         );
     }
+
 }
